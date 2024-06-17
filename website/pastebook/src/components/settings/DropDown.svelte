@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let callback: (value: number) => void;
+    export let callback: (value: any) => void;
 
     function handleCallback(event: Event) {
-        callback(parseInt((event.target as HTMLSelectElement).value));
+        callback((event.target as HTMLSelectElement).value);
     }
 </script>
 

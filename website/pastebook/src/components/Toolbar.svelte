@@ -48,7 +48,7 @@
     transform: translate(10px, -100%);
     transition: opacity 0.5s ease, background-color 0.5s ease, border 0.5s ease;
 
-    background-color: #eeeeee;
+    background-color: var(--toolbar-background);
     opacity: 0;
 
     @media (max-width: 600px) {
@@ -58,13 +58,8 @@
     display: flex;
     justify-content: space-between;
 
-    color: gray;
-    border: 1px solid #c9c9c9;
-
-    :global(.dark-mode) & {
-      border: 1px solid #333;
-      background-color: #1a1a1a;
-    }
+    color: var(--toolbar-text);
+    border: 1px solid var(--toolbar-border);
 
     &:active {
       transform: scale(0.95);
@@ -79,7 +74,7 @@
       margin: 0;
       font-family: Gabarito, sans-serif;
       border: none;
-      color: gray;
+      color: var(--toolbar-text);
 
       padding-left: 20px;
       padding-right: 30px;
@@ -87,7 +82,7 @@
       outline: none;
 
       &:hover {
-        color: darkgray;
+        color: var(--toolbar-hover);
         cursor: pointer;
       }
 
