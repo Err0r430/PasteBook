@@ -70,7 +70,7 @@
     <div id="padding-container">
         <div id="padding"></div>
     </div>
-    <Header title="Settings" created=""></Header>
+    <Header title="General Settings" created=""></Header>
     <div id="container">
         <div id="settings">
             <Setting name="Theme" description="Changes the look of PasteBook">
@@ -97,11 +97,10 @@
                         }}></Switch>
                 </svelte:fragment>
             </Setting>
-            </div>
-            </div>
-            <br>
-    <Header title="Default Paste Options" created="" subtitle></Header>
-            <div id="container" class="default-settings">
+        </div>
+    </div>
+    <Header title="Default Paste Settings" created=""></Header>
+    <div id="container" class="default-settings">
         <div id="settings">
             <Setting name="Default Unlisted" description="Default paste visibility">
                 <svelte:fragment slot="setting">
@@ -133,9 +132,9 @@
 
 <style lang="scss">
 
-.default-settings {
+  .default-settings {
     margin-top: 200px;
-}
+  }
 
   #container {
     transition: all 0.5s ease;
