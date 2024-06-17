@@ -1,6 +1,12 @@
 <script>
     import { page } from '$app/stores';
+	import { onMount } from 'svelte';
     import Mode from "../components/Mode.svelte";
+	import { ThemeManager } from '$lib/themeManager';
+
+    onMount(() => {
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
+    });
 </script>
 
 <error>
@@ -17,6 +23,7 @@
       flex-direction: column;
       height: 100vh;
       justify-content: center;
+      background-color: var(--background);
 
       h1 {
         text-align: center;
@@ -25,17 +32,14 @@
         font-weight: 800;
         line-height: 25vw;
         margin: 0;
-
-        :global(body.dark-mode) & {
-          color: white;
-        }
+        color: var(--header)
       }
 
       p {
         text-align: center;
         font-size: 5vw;
         font-family: Gabarito, sans-serif;
-        color: gray;
+        color: var(--subheader);
         font-weight: 500;
         margin: 0;
       }
