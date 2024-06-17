@@ -1,4 +1,5 @@
 <script>
+	import { ThemeManager } from "$lib/themeManager";
     import Mode from "../components/Mode.svelte";
     import {onMount} from "svelte";
 
@@ -10,6 +11,8 @@
         window.onresize = () => {
             width = window.innerWidth;
         }
+
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
     })
 </script>
 
@@ -21,20 +24,20 @@
         automatically deleting your pastes.</p>
     <buttons>
         <button onclick="window.location.href = '/new';">NEW</button>
-        <dot>⎯</dot>
+        <separator>⎯</separator>
         <button onclick="window.location.href = '/panel';">PANEL</button>
-        <dot>⎯</dot>
+        <separator>⎯</separator>
         <a href="https://github.com/Loudbooks/PasteBook" target="_blank">GITHUB</a>
         {#if width > 768}
-            <dot>⎯</dot>
+            <separator>⎯</separator>
             <a href="mailto:contact@pastebook.dev">CONTACT</a>
-            <dot>⎯</dot>
+            <separator>⎯</separator>
             <a href="/privacy">PRIVACY</a>
         {:else}
             <br>
             <div id="second-container">
                 <a href="mailto:contact@pastebook.dev">CONTACT</a>
-                <dot>⎯</dot>
+                <separator>⎯</separator>
                 <a href="/privacy">PRIVACY</a>
             </div>
         {/if}
@@ -54,16 +57,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: white;
+    background-color: var(--background);
     transition: all 0.5s var(--animation);
     overflow: hidden;
 
-    :global(.dark-mode) & {
-      background-color: black;
-      color: white;
-    }
-
-    color: black;
+    color: var(--header);
 
     h1 {
       margin-top: 0;
@@ -86,14 +84,10 @@
       font-family: Gabarito, sans-serif;
       font-size: 20px;
       margin-top: 0;
-      color: #333333;
+      color: var(--subheader);
       opacity: 0;
 
       transition: all 0.5s var(--animation);
-
-      :global(.dark-mode) & {
-        color: lightgray;
-      }
 
       @media (max-width: 768px) {
         font-size: 13px;
@@ -112,17 +106,13 @@
       padding-top: 20px;
       padding-left: 15px;
       padding-right: 15px;
-      color: #333333;
+      color: var(--subheader);
       transition: all 0.5s ease;
       opacity: 0;
 
       animation: fadeUp 1s var(--animation);
       animation-delay: 0.2s;
       animation-fill-mode: forwards;
-
-      :global(.dark-mode) & {
-        color: lightgray;
-      }
 
       @media (max-width: 768px) {
         font-size: 15px;
@@ -136,15 +126,15 @@
       animation-fill-mode: forwards;
     }
 
-    dot {
-      color: gray;
+    separator {
+      color: var(--pages-home-separator);
       font-size: 20px;
       margin: 0 10px;
       transition: all 1s ease;
       text-align: center;
 
       &:hover {
-        margin: 0 13px;
+        // margin: 0 13px;
         cursor: default;
       }
 
@@ -165,7 +155,7 @@
       padding: 10px 20px;
       font-size: 25px;
       background-color: transparent;
-      color: gray;
+      color: var(--pages-home-link-text);
       cursor: pointer;
       transition: all 0.5s;
       font-family: Gabarito, sans-serif;
@@ -173,7 +163,7 @@
       font-weight: 600;
 
       &:hover {
-        color: darkgray;
+        color: var(--pages-home-link-hover);
         cursor: pointer;
       }
 
