@@ -1,0 +1,68 @@
+{
+	"dark": {
+		"meta": {
+			"name": "Dark",
+			"authors": ["LoudBook"],
+			"version": "24.6.17"
+		},
+		"styles": {
+			"background": "#000000",
+			"header": "#ffffff",
+			"subheader": "#D3D3D3",
+			"text": "#ffffff",
+			"toolbar": {
+				"background": "#1a1a1a",
+				"border": "#333",
+				"text": "#808080",
+				"hover": "#A9A9A9"
+			},
+			"container": {
+				"background": "#333333",
+				"border": "#000000",
+				"text": "#ffffff"
+			},
+			"pages": {
+				"home": {
+					"link": {
+						"text": "#808080",
+						"hover": "#A9A9A9"
+					},
+					"separator": "#808080"
+				}
+			}
+		}
+	},
+	"light": {
+		"meta": {
+			"name": "Light",
+			"authors": ["LoudBook"],
+			"version": "24.6.17"
+		},
+		"styles": {
+			"background": "#ffffff",
+			"header": "#000000",
+			"subheader": "#333333",
+			"text": "#000000",
+			"toolbar": {
+				"background": "#eeeeee",
+				"border": "#c9c9c9",
+				"text": "#808080",
+				"hover": "#A9A9A9"
+			},
+			"container": {
+				"background": "#f0f0f0",
+				"border": "#d9d9d9",
+				"text": "#000000"
+			},
+			"pages": {
+				"home": {
+					"link": {
+						"text": "#808080",
+						"hover": "#A9A9A9"
+					},
+					"separator": "#808080"
+				}
+			}
+		}
+	}
+}
