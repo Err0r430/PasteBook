@@ -32,7 +32,7 @@
     transition: color 0.5s ease;
 
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 10px;
     text-align: left;
     align-self: start;
