@@ -52,32 +52,32 @@
                     <DropDown callback={handleCallback}>
                         <svelte:fragment slot="options">
                             {#if defaultExpire === 3600000}
-                                <option value="3600000" selected="selected">1 hour</option>
+                                <option value="3600000" selected={true}>1 hour</option>
                             {:else}
                                 <option value="3600000">1 hour</option>
                             {/if}
                             {#if defaultExpire === 43200000}
-                                <option value="43200000" selected="selected">12 hours</option>
+                                <option value="43200000" selected={true}>12 hours</option>
                             {:else}
                                 <option value="43200000">12 hours</option>
                             {/if}
                             {#if defaultExpire === 86400000}
-                                <option value="86400000" selected="selected">24 hours</option>
+                                <option value="86400000" selected={true}>24 hours</option>
                             {:else}
                                 <option value="86400000">24 hours</option>
                             {/if}
                             {#if defaultExpire === 604800000}
-                                <option value="604800000" selected="selected">1 week</option>
+                                <option value="604800000" selected={true}>1 week</option>
                             {:else}
                                 <option value="604800000">1 week</option>
                             {/if}
                             {#if defaultExpire === 1209600000}
-                                <option value="1209600000" selected="selected">2 weeks</option>
+                                <option value="1209600000" selected={true}>2 weeks</option>
                             {:else}
                                 <option value="1209600000">2 weeks</option>
                             {/if}
                             {#if defaultExpire === 2592000000}
-                                <option value="2592000000" selected="selected">1 month</option>
+                                <option value="2592000000" selected={true}>1 month</option>
                             {:else}
                                 <option value="2592000000">1 month</option>
                             {/if}

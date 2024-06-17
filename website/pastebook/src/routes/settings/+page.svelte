@@ -81,7 +81,7 @@
                         <svelte:fragment slot="options">
                             {#each themeOptions as option}
                                 {#if theme === option.value}
-                                    <option value={option.value} selected="selected">{option.text}</option>
+                                    <option value={option.value} selected={true}>{option.text}</option>
                                 {:else}
                                     <option value={option.value}>{option.text}</option>
                                 {/if}
@@ -117,7 +117,7 @@
                         <svelte:fragment slot="options">
                             {#each defaultExpireOptions as option}
                                 {#if defaultExpire === option.value}
-                                    <option value={option.value} selected="selected">{option.text}</option>
+                                    <option value={option.value} selected={true}>{option.text}</option>
                                 {:else}
                                     <option value={option.value}>{option.text}</option>
                                 {/if}
