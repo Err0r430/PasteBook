@@ -36,7 +36,6 @@
 </settings>
 
 <style lang="scss">
-
   .container {
     transition: all 0.5s ease;
     display: block;
@@ -49,6 +48,10 @@
     margin: 10px;
     border-radius: 30px;
     border: 1px solid #cfcfcf;
+
+    &:focus-visible {
+      outline: none;
+    }
 
     :hover & {
       cursor: pointer;
