@@ -1,7 +1,6 @@
 <script lang="ts">
     import Header from "../../components/Header.svelte";
     import ListedPaste from "../../components/panel/ListedPaste.svelte";
-    import Mode from "../../components/Mode.svelte";
     import {onMount} from "svelte";
     import type {Paste} from "$lib/paste";
     import SVGPasteBook from "../../components/svg/SVGPasteBook.svelte";
@@ -79,7 +78,6 @@
             {/each}
         {/if}
     {/await}
-    <Mode/>
 </panel>
 
 <style lang="scss">

@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from "svelte";
     import Header from "../../components/Header.svelte";
-    import Mode from "../../components/Mode.svelte";
 	import { ThemeManager } from "$lib/themeManager";
 
     onMount(() => {
@@ -11,7 +10,6 @@
 
 <div id="container">
     <Header title="Privacy Policy" created="May 24, 2024"/>
-    <Mode/>
 
     <div id="content-container">
         <div id="inner-content">

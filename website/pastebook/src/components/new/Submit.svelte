@@ -142,23 +142,17 @@
       font-size: 20px;
       font-weight: 800;
       transition: opacity 0.5s, transform 0.5s, background-color 0.5s;
-      background-color: #eeeeee;
-      color: black;
+      background-color: var(--components-button-background);
+      color: var(--components-button-text);
       text-decoration: none;
-      border: 1px solid #c9c9c9;
+      border: 1px solid var(--components-button-border);
 
       opacity: 0;
       transform: translateY(30%);
 
-      :global(.dark-mode) & {
-        background-color: #1a1a1a;
-        border: 1px solid #333;
-        color: white;
-      }
-
       &:global(.loading) {
         animation: blink 3s infinite;
-        color: #999999;
+        color: var(--components-button-loading);
       }
 
       &:hover:global(.loading) {
@@ -166,11 +160,7 @@
       }
 
       &:hover:not(.loading) {
-        background-color: #cfcfcf;
-
-        :global(.dark-mode) & {
-          background-color: #333;
-        }
+        background-color: var(--components-button-hover);
 
         cursor: pointer;
       }
@@ -178,10 +168,6 @@
       &:active {
         transform: scale(0.96);
       }
-    }
-
-    :global(.dark-mode) & {
-      color: white;
     }
   }
 

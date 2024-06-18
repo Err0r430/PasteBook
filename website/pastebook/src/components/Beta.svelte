@@ -6,8 +6,8 @@
         margin: 0;
         right: 100px;
         bottom: 0;
-        background: linear-gradient(90deg, #f05a48, #f4518d);
-        color: #fff;
+        background: var(--tags-beta-background);
+        color: var(--tags-beta-text);
         padding: 3px 8px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;

@@ -29,6 +29,15 @@
 						"hover": "#A9A9A9"
 					},
 					"separator": "#808080"
+				},
+				"panel": {
+					"button": "#808080",
+					"button-hover": "#A9A9A9"
+				},
+				"loading": {
+					"background": "#000000",
+					"fill": "#1a1a1a",
+					"stroke": "#333333"
 				}
 			},
 			"components": {
@@ -52,6 +61,34 @@
 					"background-on": "#333",
 					"border": "#333",
 					"circle": "#ffffff"
+				},
+				"button": {
+					"background": "#1a1a1a",
+					"border": "#333",
+					"background-hover": "#333",
+					"text": "#ffffff",
+					"loading": "#999999"
+				},
+				"pulltab": {
+					"blur": "#00000000",
+					"background": "#1a1a1a",
+					"border": "#333",
+					"text": "#ffffff",
+					"hover": "#282828"
+				}
+			},
+			"tags": {
+				"beta": {
+					"background": "linear-gradient(90deg, #f05a48, #f4518d)",
+					"text": "#fff"
+				}
+			},
+			"content": {
+				"line-number": "#999",
+				"line-number-hover": "#919191",
+				"severity": {
+					"warning": "#ffa500b3",
+					"error": "#ff000099"
 				}
 			}
 		}
@@ -90,6 +127,11 @@
 				"panel": {
 					"button": "#808080",
 					"button-hover": "#A9A9A9"
+				},
+				"loading": {
+					"background": "#ffffff",
+					"fill": "#eeeeee",
+					"stroke": "#c9c9c9"
 				}
 			},
 			"components": {
@@ -113,6 +155,38 @@
 					"background-on": "#cfcfcf",
 					"border": "#cfcfcf",
 					"circle": "#696969"
+				},
+				"button": {
+					"background": "#eeeeee",
+					"border": "#c9c9c9",
+					"background-hover": "#CFCFCF",
+					"text": "#000000",
+					"loading": "#999999"
+				},
+				"pulltab": {
+					"blur": "#00000000",
+					"background": "#eeeeee",
+					"border": "#c9c9c9",
+					"text": "#000000",
+					"hover": "#c8c8c8"
+				},
+				"highlightstab": {
+					"background": "#ffcc00",
+					"text": "#000000"
+				}
+			},
+			"tags": {
+				"beta": {
+					"background": "linear-gradient(90deg, #f05a48, #f4518d)",
+					"text": "#fff"
+				}
+			},
+			"content": {
+				"line-number": "#9999",
+				"line-number-hover": "#919191",
+				"severity": {
+					"warning": "#ffa500b3",
+					"error": "#ff000099"
 				}
 			}
 		}

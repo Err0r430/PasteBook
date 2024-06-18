@@ -2,14 +2,15 @@
     import Content from "../../components/Content.svelte";
     import Header from "../../components/Header.svelte";
     import Submit from "../../components/new/Submit.svelte";
-    import Mode from "../../components/Mode.svelte";
     import Switch from "../../components/settings/Switch.svelte";
     import Pulltab from "../../components/pulltab/Pulltab.svelte";
     import Setting from "../../components/settings/Setting.svelte";
+    import dropdowns from "$lib/dropdowns.json";
 
     import {expire, unlisted, wrap} from "$lib/stores";
     import DropDown from "../../components/settings/DropDown.svelte";
     import {onMount} from "svelte";
+	import { ThemeManager } from "$lib/themeManager";
 
     function handleCallback(value: number) {
         expire.set(value);
@@ -23,12 +24,13 @@
         defaultExpire = parseInt(localStorage.getItem("default-expire") ?? "86400000");
         defaultUnlisted = localStorage.getItem("default-unlisted") === "true";
         forceWrap = localStorage.getItem("wrap") === "true";
+
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
     });
 </script>
 
 <main>
     <div></div>
-    <Mode/>
     <Header newReport="true" class="header"></Header>
     <Content newReport="true"></Content>
     <Pulltab title="Upload Options">
@@ -49,40 +51,9 @@
             </Setting>
             <Setting name="Expire Time" description="How long your paste should last before being annihilated">
                 <svelte:fragment slot="setting">
-                    <DropDown callback={handleCallback}>
-                        <svelte:fragment slot="options">
-                            {#if defaultExpire === 3600000}
-                                <option value="3600000" selected={true}>1 hour</option>
-                            {:else}
-                                <option value="3600000">1 hour</option>
-                            {/if}
-                            {#if defaultExpire === 43200000}
-                                <option value="43200000" selected={true}>12 hours</option>
-                            {:else}
-                                <option value="43200000">12 hours</option>
-                            {/if}
-                            {#if defaultExpire === 86400000}
-                                <option value="86400000" selected={true}>24 hours</option>
-                            {:else}
-                                <option value="86400000">24 hours</option>
-                            {/if}
-                            {#if defaultExpire === 604800000}
-                                <option value="604800000" selected={true}>1 week</option>
-                            {:else}
-                                <option value="604800000">1 week</option>
-                            {/if}
-                            {#if defaultExpire === 1209600000}
-                                <option value="1209600000" selected={true}>2 weeks</option>
-                            {:else}
-                                <option value="1209600000">2 weeks</option>
-                            {/if}
-                            {#if defaultExpire === 2592000000}
-                                <option value="2592000000" selected={true}>1 month</option>
-                            {:else}
-                                <option value="2592000000">1 month</option>
-                            {/if}
-                        </svelte:fragment>
-                    </DropDown>
+                    <DropDown callback={(value) => {
+                        localStorage.setItem("default-expire", value.toString());
+                    }} items={dropdowns.expireOptions} value={defaultExpire} />
                 </svelte:fragment>
             </Setting>
         </svelte:fragment>

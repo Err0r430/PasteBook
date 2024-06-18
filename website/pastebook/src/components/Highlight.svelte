@@ -76,8 +76,8 @@
 
       bottom: 0;
 
-      background: #ffcc00;
-      color: black;
+      background: var(--components-highlightstab-background);
+      color: var(--components-highlightstab-text);
 
       padding: 4px 8px;
       border-top-left-radius: 5px;
