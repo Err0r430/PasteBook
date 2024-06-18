@@ -40,14 +40,11 @@
       align-self: end;
       flex: 100%;
       padding-left: 30px;
+      color: var(--components-header-title);
 
       animation: fadeIn ease 0.7s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
-
-      :global(.dark-mode) & {
-        color: white;
-      }
 
       transition: opacity 0.5s ease, transform 0.5s ease;
       outline: none;
@@ -75,10 +72,7 @@
       animation: fadeIn ease 0.7s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
-
-      :global(.dark-mode) & {
-        color: white;
-      }
+      color: var(--components-header-title);
 
       transition: color 0.2s ease;
     }
@@ -89,7 +83,7 @@
       text-align: right;
       font-weight: 200;
       opacity: 0;
-      color: grey;
+      color: var(--components-header-created);
       align-self: end;
 
       padding-right: 30px;
@@ -100,10 +94,6 @@
       animation-delay: 0.1s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
-
-      :global(.dark-mode) & {
-        color: lightgray;
-      }
 
       transition: color 0.2s ease;
     }

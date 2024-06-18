@@ -4,32 +4,27 @@
     import Setting from "../../components/settings/Setting.svelte";
     import {onMount} from "svelte";
     import DropDown from "../../components/settings/DropDown.svelte";
+	import { ThemeManager } from "$lib/themeManager";
 
-    let darkMode = false;
     let wrap = false;
     let defaultUnlisted = false;
     let defaultExpire = 86400000;
     let theme: string;
 
     let themeOptions = [
-        {value: "dark", text: "Dark"},
-        {value: "light", text: "Light"}
+        {value: "dark", label: "Dark"},
+        {value: "light", label: "Light"}
     ];
     let defaultExpireOptions = [
-        {value: 3600000, text: "1 hour"},
-        {value: 43200000, text: "12 hours"},
-        {value: 86400000, text: "24 hours"},
-        {value: 604800000, text: "1 week"},
-        {value: 1209600000, text: "2 weeks"},
-        {value: 2592000000, text: "1 month"}
+        {value: 3600000, label: "1 hour"},
+        {value: 43200000, label: "12 hours"},
+        {value: 86400000, label: "24 hours"},
+        {value: 604800000, label: "1 week"},
+        {value: 1209600000, label: "2 weeks"},
+        {value: 2592000000, label: "1 month"}
     ];
 
     onMount(() => {
-        darkMode = localStorage.getItem("dark-mode") === "true";
-
-        if (darkMode) {
-            document.body.classList.add("dark-mode");
-        }
 
         wrap = localStorage.getItem("wrap") === "true";
 
@@ -45,24 +40,9 @@
 
         defaultExpire = parseInt(localStorage.getItem("default-expire") ?? "86400000");
 
-        theme = localStorage.getItem("theme") ?? "dark";
-    });
-
-    onMount(() => {
-        console.log("aaa");
-        if (localStorage.getItem('dark-mode') === null) {
-            localStorage.setItem('dark-mode', 'true');
-        }
-
-        darkMode = localStorage.getItem('dark-mode') === 'true';
-
-        if (darkMode) {
-            document.body.classList.add('dark-mode');
-            document.body.style.background = '#000000';
-        } else {
-            document.body.classList.remove('dark-mode');
-            document.body.style.backgroundColor = '#ffffff';
-        }
+        theme = ThemeManager.getTheme();
+        
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
     });
 </script>
 
@@ -77,17 +57,8 @@
                 <svelte:fragment slot="setting">
                     <DropDown callback={(value) => {
                         localStorage.setItem("theme", value);
-                    }}>
-                        <svelte:fragment slot="options">
-                            {#each themeOptions as option}
-                                {#if theme === option.value}
-                                    <option value={option.value} selected={true}>{option.text}</option>
-                                {:else}
-                                    <option value={option.value}>{option.text}</option>
-                                {/if}
-                            {/each}
-                        </svelte:fragment>
-                    </DropDown>
+                        document.documentElement.style.cssText = ThemeManager.compileVariables();
+                    }} items={themeOptions} value={theme} />
                 </svelte:fragment>
             </Setting>
             <Setting name="Force Text Wrap" description="Forcefully enable text wrap on all pastes">
@@ -113,17 +84,7 @@
                 <svelte:fragment slot="setting">
                     <DropDown callback={(value) => {
                         localStorage.setItem("default-expire", value.toString());
-                    }}>
-                        <svelte:fragment slot="options">
-                            {#each defaultExpireOptions as option}
-                                {#if defaultExpire === option.value}
-                                    <option value={option.value} selected={true}>{option.text}</option>
-                                {:else}
-                                    <option value={option.value}>{option.text}</option>
-                                {/if}
-                            {/each}
-                        </svelte:fragment>
-                    </DropDown>
+                    }} items={defaultExpireOptions} value={defaultExpire} />
                 </svelte:fragment>
             </Setting>
         </div>
@@ -131,6 +92,11 @@
 </main>
 
 <style lang="scss">
+
+    main {
+        height: 100vh;
+        background-color: var(--background);
+    }
 
   .default-settings {
     margin-top: 200px;
@@ -140,15 +106,15 @@
     transition: all 0.5s ease;
 
     display: block;
-    background-color: #eeeeee;
+    background-color: var(--container-background);
     width: calc(100% - 20px);
     margin: 10px;
     border-radius: 20px;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    height: calc(100% - 140px);
+    // height: calc(100% - 140px);
     overflow-x: scroll;
-    border: 1px solid #c9c9c9;
+    border: 1px solid var(--container-border);
     box-sizing: border-box;
     padding: 10px 10px 5px;
     opacity: 0;
@@ -156,11 +122,6 @@
     @media (max-width: 600px) {
       height: calc(100% - 130px);
       margin-top: 6px;
-    }
-
-    :global(.dark-mode) & {
-      border: 1px solid #333;
-      background-color: #1a1a1a;
     }
 
     animation: fadeIn 0.5s forwards;

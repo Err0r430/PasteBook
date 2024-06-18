@@ -36,21 +36,17 @@
     margin-right: 10px;
     text-align: left;
     align-self: start;
-    color: black;
+    color: var(--components-setting-title);
     font-family: Gabarito, sans-serif;
 
     @media (max-width: 768px) {
       font-size: 1em;
     }
-
-    :global(.dark-mode) & {
-      color: white;
-    }
   }
 
   settingdescription {
     font-size: 1em;
-    color: #666;
+    color: var(--components-setting-description);
     text-align: left;
     align-self: start;
     font-family: Gabarito, sans-serif;

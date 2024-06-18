@@ -17,8 +17,8 @@
 				"hover": "#A9A9A9"
 			},
 			"container": {
-				"background": "#333333",
-				"border": "#000000",
+				"background": "#1a1a1a",
+				"border": "#333",
 				"text": "#ffffff"
 			},
 			"pages": {
@@ -28,6 +28,29 @@
 						"hover": "#A9A9A9"
 					},
 					"separator": "#808080"
+				}
+			},
+			"components": {
+				"setting": {
+					"title": "#ffffff",
+					"description": "#666"
+				},
+				"header": {
+					"title": "#ffffff",
+					"created": "#D3D3D3"
+				},
+				"dropdown": {
+					"background": "#1a1a1a",
+					"text": "#ffffff",
+					"border": "#333",
+					"hover": "#333",
+					"selected": "#333"
+				},
+				"switch": {
+					"background-off": "#1a1a1a",
+					"background-on": "#333",
+					"border": "#333",
+					"circle": "#ffffff"
 				}
 			}
 		}
@@ -50,8 +73,8 @@
 				"hover": "#A9A9A9"
 			},
 			"container": {
-				"background": "#f0f0f0",
-				"border": "#d9d9d9",
+				"background": "#eeeeee",
+				"border": "#c9c9c9",
 				"text": "#000000"
 			},
 			"pages": {
@@ -61,6 +84,29 @@
 						"hover": "#A9A9A9"
 					},
 					"separator": "#808080"
+				}
+			},
+			"components": {
+				"setting": {
+					"title": "#000000",
+					"description": "#666"
+				},
+				"header": {
+					"title": "#000000",
+					"created": "#808080"
+				},
+				"dropdown": {
+					"background": "#00000000",
+					"text": "#000000",
+					"border": "#cfcfcf",
+					"hover": "#cfcfcf",
+					"selected": "#cfcfcf"
+				},
+				"switch": {
+					"background-off": "#eeeeee",
+					"background-on": "#cfcfcf",
+					"border": "#cfcfcf",
+					"circle": "#696969"
 				}
 			}
 		}

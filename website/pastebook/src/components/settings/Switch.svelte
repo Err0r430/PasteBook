@@ -47,7 +47,7 @@
     width: 70px;
     margin: 10px;
     border-radius: 30px;
-    border: 1px solid #cfcfcf;
+    border: 1px solid var(--components-switch-border);
 
     &:focus-visible {
       outline: none;
@@ -55,10 +55,6 @@
 
     :hover & {
       cursor: pointer;
-    }
-
-    :global(.dark-mode) & {
-      border: 1px solid #333;
     }
 
     @media (max-width: 600px) {
@@ -72,19 +68,11 @@
   }
 
   :global(.bg-active-true) {
-    background-color: #cfcfcf;
-
-    :global(.dark-mode) & {
-      background-color: #333;
-    }
+    background-color: var(--components-switch-background-on);
   }
 
   :global(.bg-active-false) {
-    background-color: #eeeeee;
-
-    :global(.dark-mode) & {
-      background-color: #1a1a1a;
-    }
+    background-color: var(--components-switch-background-off);
   }
 
   .circle {
@@ -94,15 +82,11 @@
     width: 35px;
     margin-top: 0;
     border-radius: 50%;
-    background-color: dimgray;
+    background-color: var(--components-switch-circle);
 
     @media (max-width: 600px) {
       height: 20px;
       width: 20px;
-    }
-
-    :global(.dark-mode) & {
-      background-color: white;
     }
 
     padding: 0;
