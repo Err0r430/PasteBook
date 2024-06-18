@@ -46,7 +46,7 @@
                     <DropDown callback={(value) => {
                         localStorage.setItem("theme", value);
                         document.documentElement.style.cssText = ThemeManager.compileVariables();
-                    }} items={dropdowns.themeOptions} value={theme} />
+                    }} items={ThemeManager.getThemes()} value={theme} />
                 </svelte:fragment>
             </Setting>
             <Setting name="Force Text Wrap" description="Forcefully enable text wrap on all pastes">

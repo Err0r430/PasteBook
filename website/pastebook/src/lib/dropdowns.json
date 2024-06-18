@@ -1,8 +1,4 @@
 {
-	"themeOptions": [
-		{ "value": "dark", "label": "Dark" },
-		{ "value": "light", "label": "Light" }
-	],
 	"expireOptions": [
 		{ "value": 3600000, "label": "1 hour" },
 		{ "value": 43200000, "label": "12 hours" },
