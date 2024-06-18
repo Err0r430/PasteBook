@@ -1,82 +1,43 @@
 <script lang="ts">
+  import Select from 'svelte-select';
     export let callback: (value: any) => void;
+    export let items: { value: any, label: string }[] = [];
+    export let value: any;
 
-    function handleCallback(event: Event) {
-        callback((event.target as HTMLSelectElement).value);
+    function handleCallback(event: any) {
+        callback(event.detail.value);
+    }
+
+    function findLabel(value: any) {
+        return items.find((item) => item.value === value)?.label;
     }
 </script>
 
-<select on:change={handleCallback}>
-    <slot name="options"/>
-</select>
+<dropdown>
+  <Select items={items} floatingConfig={{
+            strategy: 'fixed',
+        }} 
+        --item-is-active-bg={'var(--components-dropdown-selected)'}
+        --item-hover-bg={'var(--components-dropdown-hover)'}
+        --item-color={'var(--components-dropdown-text)'}
+        --item-is-active-color={'var(--components-dropdown-text)'}
+        --list-border={'1px solid var(--components-dropdown-border) 10px'}
+        listOffset={5}
+        inputStyles={'cursor: pointer;'}
+        containerStyles={'width: 150px; color: var(--components-dropdown-text); background-color: var(--components-dropdown-background); border-radius: 30px; height: 40px; font-size: 15px; padding: 5px 5px 5px 15px; margin: 10px; border: 1px solid var(--components-dropdown-border); font-family: Gabarito, sans-serif; webkit-appearance: none; &:hover { cursor: pointer; background-color: var(--components-dropdown-hover); } &:focus { outline: none; } &:active { background-color: var(--components-dropdown-active); } overflow: visible;'} 
+        on:change={handleCallback} showChevron value={findLabel(value)} searchable={false} clearable={false} />
+        
+</dropdown>
 
 <style lang="scss">
-  select {
-    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
-
-    width: 110px;
-    padding: 5px 5px 5px 15px;
-    font-size: 15px;
-    margin: 10px;
-    line-height: 1;
-    border-radius: 30px;
-    height: 40px;
-
-    @media (min-width: 600px) {
-      background: url("$lib/assets/arrow.svg") no-repeat right #eeeeee;
-      background-size: 15%;
-      background-position-x: 80px;
-    }
-    @media (max-width: 600px) {
-      background: url("$lib/assets/arrow.svg") no-repeat right #eeeeee;
-      background-size: 15%;
-      background-position-x: 75px;
-    }
-
-    :global(.dark-mode) & {
-      border: 1px solid #333;
-      @media (min-width: 600px) {
-        background: url("$lib/assets/arrow-white.svg") no-repeat right #1a1a1a;
-        background-size: 15%;
-        background-position-x: 80px;
-      }
-      @media (max-width: 600px) {
-        background: url("$lib/assets/arrow-white.svg") no-repeat right #1a1a1a;
-        background-size: 15%;
-        background-position-x: 75px;
-      }
-      color: white;
-    }
-
-    border: 1px solid #cfcfcf;
-    color: black;
-    font-family: Gabarito, sans-serif;
-
-    -webkit-appearance: none;
-    float: right;
-
-    @media (max-width: 600px) {
-      height: 25px;
-      font-size: 12px;
-      padding-left: 10px;
-      width: 100px;
-    }
+  :global(.list-item) {
+    background-color: var(--components-dropdown-background);
+  }
+  :global(.svelte-select) {
+    cursor: pointer !important;
 
     &:hover {
-      cursor: pointer;
-      background-color: #cfcfcf;
-
-      :global(.dark-mode) & {
-        background-color: #333;
-      }
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:active {
-      background-color: #cfcfcf;
+      background-color: var(--components-dropdown-hover) !important;
     }
   }
 </style>

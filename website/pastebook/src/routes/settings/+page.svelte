@@ -76,7 +76,7 @@
             <Setting name="Theme" description="Changes the look of PasteBook">
                 <svelte:fragment slot="setting">
                     <DropDown callback={(value) => {
-                        localStorage.setItem("theme", value.toString());
+                        localStorage.setItem("theme", value);
                     }}>
                         <svelte:fragment slot="options">
                             {#each themeOptions as option}
