@@ -1,6 +1,12 @@
 <script>
+	import { onMount } from "svelte";
     import Header from "../../components/Header.svelte";
     import Mode from "../../components/Mode.svelte";
+	import { ThemeManager } from "$lib/themeManager";
+
+    onMount(() => {
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
+    });
 </script>
 
 <div id="container">
@@ -916,11 +922,14 @@
 </div>
 
 <style lang="scss">
+    :global(body) {
+        background-color: var(--background);
+    }
   #container {
     padding-top: 40px;
-    color: white;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    background-color: var(--background);
 
     @media (max-width: 600px) {
       padding-top: 25px;
@@ -930,7 +939,7 @@
 
   #content-container {
     display: block;
-    background-color: #eeeeee;
+    background-color: var(--container-background);
     transition: background-color 0.5s ease, outline 0.5s ease;
     width: calc(100% - 20px);
     margin: 10px;
@@ -944,11 +953,6 @@
     @media (max-width: 600px) {
       height: calc(100% - 130px);
       margin-top: 6px;
-    }
-
-    :global(.dark-mode) & {
-      outline: 1px solid #333;
-      background-color: #1a1a1a;
     }
 
     opacity: 0;
@@ -970,7 +974,7 @@
   }
 
   p {
-    color: black;
+    color: var(--container-text);
     font-family: Gabarito, sans-serif;
     transition: color 0.5s ease;
     font-size: 12px;
@@ -978,43 +982,27 @@
     @media (max-width: 600px) {
       font-size: 10px;
     }
-
-    :global(.dark-mode) & {
-      color: white;
-    }
   }
 
   a {
     transition: color 0.5s ease;
 
     &:link {
-      color: black;
-
-      :global(.dark-mode) & {
-        color: white;
-      }
+      color: var(--container-text);
     }
 
     &:visited {
-      color: black;
-
-      :global(.dark-mode) & {
-        color: white;
-      }
+      color: var(--container-text);
     }
   }
 
   ul {
     list-style-type: square;
-    color: black;
+    color: var(--container-text);
     transition: color 0.5s ease;
 
     @media (max-width: 600px) {
       font-size: 10px;
-    }
-
-    :global(.dark-mode) & {
-      color: white;
     }
   }
 </style>

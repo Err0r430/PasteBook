@@ -19,7 +19,8 @@
 			"container": {
 				"background": "#1a1a1a",
 				"border": "#333",
-				"text": "#ffffff"
+				"text": "#ffffff",
+				"hover": "#333"
 			},
 			"pages": {
 				"home": {
@@ -75,7 +76,8 @@
 			"container": {
 				"background": "#eeeeee",
 				"border": "#c9c9c9",
-				"text": "#000000"
+				"text": "#000000",
+				"hover": "#cfcfcf"
 			},
 			"pages": {
 				"home": {
@@ -84,6 +86,10 @@
 						"hover": "#A9A9A9"
 					},
 					"separator": "#808080"
+				},
+				"panel": {
+					"button": "#808080",
+					"button-hover": "#A9A9A9"
 				}
 			},
 			"components": {
