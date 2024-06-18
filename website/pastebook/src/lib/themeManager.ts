@@ -2,11 +2,19 @@ import themes from './assets/themes.json';
 
 export class ThemeManager {
 	static getTheme() {
+		if (typeof localStorage === 'undefined') return 'light';
+		if (!localStorage.getItem('theme')) localStorage.setItem('theme', 'light');
 		return localStorage.getItem('theme') || 'light';
 	}
 
 	static setTheme(theme: string) {
 		localStorage.setItem('theme', theme);
+	}
+
+	static getVariable(name: string) {
+		// @ts-ignore
+		let theme = flattenObject(themes[ThemeManager.getTheme()].styles);
+		return theme[name];
 	}
 
 	static compileVariables() {
