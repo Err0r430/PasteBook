@@ -23,19 +23,25 @@
         privacy by
         automatically deleting your pastes.</p>
     <buttons>
-        <button onclick="window.location.href = '/new';">NEW</button>
-        <separator>⎯</separator>
-        <button onclick="window.location.href = '/panel';">PANEL</button>
-        <separator>⎯</separator>
-        <a href="https://github.com/Loudbooks/PasteBook" target="_blank">GITHUB</a>
         {#if width > 768}
+            <button onclick="window.location.href = '/new';">NEW</button>
+            <separator>⎯</separator>
+            <button onclick="window.location.href = '/panel';">PANEL</button>
+            <separator>⎯</separator>
+            <a href="https://github.com/Loudbooks/PasteBook" target="_blank">GITHUB</a>
             <separator>⎯</separator>
             <a href="mailto:contact@pastebook.dev">CONTACT</a>
             <separator>⎯</separator>
             <a href="/privacy">PRIVACY</a>
         {:else}
-            <br>
             <div id="second-container">
+                <button onclick="window.location.href = '/new';">NEW</button>
+                <separator>⎯</separator>
+                <button onclick="window.location.href = '/panel';">PANEL</button>
+            </div>
+            <div id="second-container">
+                <a href="https://github.com/Loudbooks/PasteBook" target="_blank">GITHUB</a>
+                <separator>⎯</separator>
                 <a href="mailto:contact@pastebook.dev">CONTACT</a>
                 <separator>⎯</separator>
                 <a href="/privacy">PRIVACY</a>
@@ -181,6 +187,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
+
+      a {
+        display: block;
+      }
     }
 
     @keyframes fadeUp {

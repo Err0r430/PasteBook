@@ -41,7 +41,7 @@
         defaultExpire = parseInt(localStorage.getItem("default-expire") ?? "86400000");
 
         theme = ThemeManager.getTheme();
-        
+
         document.documentElement.style.cssText = ThemeManager.compileVariables();
     });
 </script>
