@@ -1,6 +1,5 @@
 <script lang="ts">
     import Content from "../../../components/Content.svelte";
-    import Mode from "../../../components/Mode.svelte";
     import Header from "../../../components/Header.svelte";
     import PotentialIssues from "../../../components/PotentialIssues.svelte";
     import {loadProgress, severes, warnings} from "$lib/stores";
@@ -138,7 +137,6 @@
         <div id="padding"></div>
     </div>
     <SVGPasteBook/>
-    <Mode/>
     <Highlight/>
     <div id="hoverable" on:mouseenter={handler} on:mouseleave={undoHandler} role="tooltip">
         <Header title="{title}" created="{timeSinceStr}"></Header>

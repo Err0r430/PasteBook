@@ -110,12 +110,12 @@
   }
 
   .severe {
-    background-color: rgb(255, 0, 0, 0.4);
-    border: 2px solid rgb(255, 0, 0, 0.4);
+    background-color: #ff000066;
+    border: 2px solid #ff000066;
   }
 
   .warn {
-    background-color: rgb(#ff8c00, 0.4);
+    background-color: rgb(rgb(255, 140, 0), 0.4);
     border: 2px solid rgb(#ff8c00, 0.4);
   }
 

@@ -1,11 +1,11 @@
 <script lang="ts">
     import Header from "../../components/Header.svelte";
     import ListedPaste from "../../components/panel/ListedPaste.svelte";
-    import Mode from "../../components/Mode.svelte";
     import {onMount} from "svelte";
     import type {Paste} from "$lib/paste";
     import SVGPasteBook from "../../components/svg/SVGPasteBook.svelte";
     import {loadProgress} from "$lib/stores";
+	import { ThemeManager } from "$lib/themeManager";
 
     export let data;
 
@@ -53,6 +53,7 @@
                 }, i * 60)
             }
         }, 100)
+        document.documentElement.style.cssText = ThemeManager.compileVariables();
     })
 </script>
 
@@ -77,7 +78,6 @@
             {/each}
         {/if}
     {/await}
-    <Mode/>
 </panel>
 
 <style lang="scss">
@@ -98,13 +98,9 @@
     font-size: 5rem;
     font-family: Gabarito, sans-serif;
     font-weight: 900;
-    color: black;
+    color: var(--container-text);
     opacity: 0;
     margin-bottom: 0;
-
-    :global(.dark-mode) & {
-      color: white;
-    }
 
     animation: fadeUp 0.3s forwards;
     animation-delay: 0.2s;
@@ -155,7 +151,7 @@
     padding: 10px 20px;
     font-size: 25px;
     background-color: transparent;
-    color: gray;
+    color: var(--pages-panel-button);
     cursor: pointer;
     transition: all 0.5s;
     font-family: Gabarito, sans-serif;
@@ -167,7 +163,7 @@
     animation-delay: 0.35s;
 
     &:hover {
-      color: darkgray;
+      color: var(--pages-panel-button-hover);
       cursor: pointer;
     }
 

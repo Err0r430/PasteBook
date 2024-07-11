@@ -1,7 +1,6 @@
 <script>
     import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-    import Mode from "../components/Mode.svelte";
 	import { ThemeManager } from '$lib/themeManager';
 
     onMount(() => {
@@ -12,7 +11,6 @@
 <error>
     <h1>{$page.status}</h1>
     <p>{$page.error.message}</p>
-    <Mode></Mode>
 </error>
 
 <style lang="scss">

@@ -1,6 +1,5 @@
 <script>
 	import { ThemeManager } from "$lib/themeManager";
-    import Mode from "../components/Mode.svelte";
     import {onMount} from "svelte";
 
     let width = 0;
@@ -48,8 +47,6 @@
             </div>
         {/if}
     </buttons>
-
-    <Mode></Mode>
 </about>
 
 <style lang="scss">

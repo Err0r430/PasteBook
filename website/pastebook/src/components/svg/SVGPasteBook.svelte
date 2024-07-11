@@ -80,11 +80,7 @@
     position: absolute;
     top: 0;
     z-index: 998;
-    background-color: white;
-
-    :global(.dark-mode) & {
-      background-color: black;
-    }
+    background-color: var(--pages-loading-background);
   }
 
   svg {
@@ -108,8 +104,8 @@
   svg path {
     transition: stroke-dasharray 0.5s ease-in-out, stroke-dashoffset 0.5s ease-in-out, fill 0.3s ease-in-out, stroke 0.5s ease-in-out, stroke-opacity 0.5s ease-in-out;
 
-    fill: #eeeeee;
-    stroke: #c9c9c9;
+    fill: var(--pages-loading-fill);
+    stroke: var(--pages-loading-stroke);
     stroke-width: 2px;
     stroke-dasharray: 900px;
     stroke-dashoffset: 900px;

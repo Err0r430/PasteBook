@@ -236,7 +236,7 @@
 <style lang="scss">
   content-container {
     display: block;
-    background-color: #eeeeee;
+    background-color: var(--container-background);
     width: calc(100% - 20px);
     margin: 10px;
     border-radius: 20px;
@@ -246,16 +246,11 @@
     opacity: 0;
     height: calc(100% - 140px);
     overflow-x: scroll;
-    border: 1px solid #c9c9c9;
+    border: 1px solid var(--container-border);
 
     @media (max-width: 600px) {
       height: calc(100% - 130px);
       margin-top: 6px;
-    }
-
-    :global(.dark-mode) & {
-      border: 1px solid #333;
-      background-color: #1a1a1a;
     }
 
     &.new-true {
@@ -271,17 +266,13 @@
     width: calc(100% - 60px);
     height: calc(100% - 64px);
     background-color: transparent;
-    color: inherit;
     font-size: 13px;
     font-family: "JetBrains Mono NL", monospace;
     outline: none;
     resize: none;
     margin: 30px;
     padding: 0;
-
-    :global(.dark-mode) & {
-      color: white;
-    }
+    color: var(--container-text);
 
     @media (max-width: 600px){
       font-size: 10px;
@@ -293,7 +284,7 @@
     margin: 0;
     &:hover {
       .number {
-        color: #919191;
+        color: var(--content-line-number-hover);
       }
     }
   }
@@ -308,7 +299,7 @@
     display: inline-block;
     text-align: right;
     padding-right: 20px;
-    color: #9999;
+    color: var(--content-line-number);
     font-family: "JetBrains Mono NL", monospace;
     font-size: 13px;
     margin: 0;
@@ -325,16 +316,13 @@
       padding-right: 12px;
     }
 
-    .dark-mode & {
-      color: #999;
-    }
-
     transition: all 0.2s ease, font-weight 0.5s ease;
   }
 
   linecontainer {
     display: block;
     transition: color 0.2s ease, margin 0.5s ease;
+    color: var(--container-text);
 
     font-size: 13px;
     white-space: pre;
@@ -352,20 +340,16 @@
       padding-left: 30px;
       text-indent: -18px;
     }
-
-    :global(body.dark-mode) & {
-      color: white;
-    }
   }
 
   line-content-container {
     margin-right: 30px;
     &.severity-1 {
-      background-color: rgb(255, 165, 0, 0.7);
+      background-color: var(--content-severity-warning);
     }
 
     &.severity-2 {
-      background-color: rgb(255, 0, 0, 0.6);
+      background-color: var(--content-severity-error);
     }
   }
 

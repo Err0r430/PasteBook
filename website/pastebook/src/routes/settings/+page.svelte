@@ -5,24 +5,12 @@
     import {onMount} from "svelte";
     import DropDown from "../../components/settings/DropDown.svelte";
 	import { ThemeManager } from "$lib/themeManager";
+    import dropdowns from "$lib/dropdowns.json";
 
     let wrap = false;
     let defaultUnlisted = false;
     let defaultExpire = 86400000;
     let theme: string;
-
-    let themeOptions = [
-        {value: "dark", label: "Dark"},
-        {value: "light", label: "Light"}
-    ];
-    let defaultExpireOptions = [
-        {value: 3600000, label: "1 hour"},
-        {value: 43200000, label: "12 hours"},
-        {value: 86400000, label: "24 hours"},
-        {value: 604800000, label: "1 week"},
-        {value: 1209600000, label: "2 weeks"},
-        {value: 2592000000, label: "1 month"}
-    ];
 
     onMount(() => {
 
@@ -58,7 +46,7 @@
                     <DropDown callback={(value) => {
                         localStorage.setItem("theme", value);
                         document.documentElement.style.cssText = ThemeManager.compileVariables();
-                    }} items={themeOptions} value={theme} />
+                    }} items={ThemeManager.getThemes()} value={theme} />
                 </svelte:fragment>
             </Setting>
             <Setting name="Force Text Wrap" description="Forcefully enable text wrap on all pastes">
@@ -84,7 +72,7 @@
                 <svelte:fragment slot="setting">
                     <DropDown callback={(value) => {
                         localStorage.setItem("default-expire", value.toString());
-                    }} items={defaultExpireOptions} value={defaultExpire} />
+                    }} items={dropdowns.expireOptions} value={defaultExpire} />
                 </svelte:fragment>
             </Setting>
         </div>

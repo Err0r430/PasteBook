@@ -15,7 +15,7 @@
     let timeSinceStr = formatTimeSince(created)
 
     reloadTime()
-    let clear
+    let clear;
     $: {
         clearInterval(clear)
         clear = setInterval(reloadTime, 1000)
@@ -46,32 +46,22 @@
     display: flex;
     padding: 1rem;
     border-radius: 15px;
-    color: black;
+    color: var(--container-text);
     width: calc(100% - 20px);
     outline: none;
     align-content: space-between;
-    background-color: #eeeeee;
+    background-color: var(--container-background);
     margin: 10px;
-    border: 1px solid #c9c9c9;
+    border: 1px solid var(--container-border);
 
     &:hover {
-      background-color: #cfcfcf;
-
-      :global(.dark-mode) & {
-        background-color: #333;
-      }
+      background-color: var(--container-hover);
 
       cursor: pointer;
     }
 
     &:active {
       transform: scale(0.995);
-    }
-
-    :global(.dark-mode) & {
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-      color: white;
     }
 
     name {
@@ -125,11 +115,7 @@
       white-space: nowrap;
 
       font-family: Gabarito, sans-serif;
-      color: gray;
-
-      :global(.dark-mode) & {
-        color: lightgray;
-      }
+      color: var(--header-created);
 
       @media screen {
         @media (max-width: 600px) {

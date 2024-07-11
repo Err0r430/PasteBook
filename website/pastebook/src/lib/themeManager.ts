@@ -28,6 +28,16 @@ export class ThemeManager {
 
 		return css;
 	}
+
+	static getThemes() {
+		let themeList = [];
+		for (let theme in themes) {
+			// @ts-ignore
+			themeList.push({ value: theme, label: themes[theme].meta.name });
+		}
+
+		return themeList;
+	}
 }
 
 function flattenObject(obj: any, prefix: string = '') {
