@@ -2,19 +2,19 @@
 	"dark": {
 		"meta": {
 			"name": "Dark",
-			"authors": ["LoudBook"],
+			"authors": ["Loudbook"],
 			"version": "24.6.17"
 		},
 		"styles": {
 			"background": "#000000",
 			"header": "#ffffff",
-			"subheader": "#D3D3D3",
+			"subheader": "#828282",
 			"text": "#ffffff",
 			"toolbar": {
 				"background": "#1a1a1a",
 				"border": "#333",
-				"text": "#808080",
-				"hover": "#A9A9A9"
+					"text": "#828282",
+				"hover": "#828282"
 			},
 			"container": {
 				"background": "#1a1a1a",
@@ -25,14 +25,14 @@
 			"pages": {
 				"home": {
 					"link": {
-						"text": "#808080",
-						"hover": "#A9A9A9"
+						"text": "#828282",
+						"hover": "#828282"
 					},
-					"separator": "#808080"
+					"separator": "#828282"
 				},
 				"panel": {
-					"button": "#808080",
-					"button-hover": "#A9A9A9"
+					"button": "#828282",
+					"button-hover": "#828282"
 				},
 				"loading": {
 					"background": "#000000",
@@ -43,11 +43,11 @@
 			"components": {
 				"setting": {
 					"title": "#ffffff",
-					"description": "#666"
+					"description": "#828282"
 				},
 				"header": {
 					"title": "#ffffff",
-					"created": "#D3D3D3"
+					"created": "#828282"
 				},
 				"dropdown": {
 					"background": "#1a1a1a",
@@ -67,7 +67,7 @@
 					"border": "#333",
 					"background-hover": "#333",
 					"text": "#ffffff",
-					"loading": "#999999"
+					"loading": "#828282"
 				},
 				"pulltab": {
 					"blur": "#00000000",
@@ -96,7 +96,7 @@
 	"light": {
 		"meta": {
 			"name": "Light",
-			"authors": ["LoudBook"],
+			"authors": ["Loudbook"],
 			"version": "24.6.17"
 		},
 		"styles": {
